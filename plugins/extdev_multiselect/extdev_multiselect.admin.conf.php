@@ -74,13 +74,17 @@ if (defined('EXTDEV_MULTISELECT')) {//&& ($config_cat==$plug_name || $dem_cfg['t
 				switch ($config_type) {
 					case 'simplelist':
 						$last = $config_variants[sizeof($config_variants)-1];
+						$item_list = '';
 						foreach ($config_variants as $k=>$item) {
 							$config_title = $config_variants_titles[$k];
-							$item_list .= ' '.cot_rc_link("#$item",$config_title,
-											array('onclick'=>"sl_add('$item','$config_name');return false;")).',';
+							$link = cot_rc_link("#$item",$config_title,
+											array('onclick'=>"sl_add('$item','$config_name');return false;"));
+							$item_list .= ($last==$item) ? cot_rc('edm_lastitem',array('item'=>$link)) :
+												 			cot_rc('edm_listitem',array('item'=>$link));
 						}
-						$config_more .= $L['cfg_'.$config_name][2].mb_substr($item_list,0, -1).'<br />'
-								.cot_rc_link('#_clear',$L['cfg_'.$config_name][3],array('onclick'=>"sl_clear('$config_name');return false;"));
+						$config_more .= cot_rc('edm_simplelist',array('info'=>($L['cfg_'.$config_name][2] ? $L['cfg_'.$config_name][2] : 'Select'),'list'=>$item_list ));
+						$cl_link = cot_rc_link('#_clear',$L['cfg_'.$config_name][3],array('onclick'=>"sl_clear('$config_name');return false;"));
+						$config_more .= cot_rc('edm_listclear',array('clear'=>$cl_link));
 						$config_input = cot_inputbox('text', $config_name, $config_value,$def_attr);
 						break;
 					case 'multiselect':

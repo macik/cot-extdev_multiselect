@@ -24,6 +24,11 @@ if (defined('COT_ADMIN') && $_GET['n']=='edit' && $_GET['o']=='plug' && $_GET['m
 				&& ($_GET['p']==$plug_name || $edm_cfg['track_mode'])) {
 	define('EXTDEV_MULTISELECT',true);
 
+	$R['edm_listitem'] = ' {$item},';
+	$R['edm_lastitem'] = ' {$item}';
+	$R['edm_listclear'] = '<br/>{$clear}';
+	$R['edm_simplelist'] = '<br/>{$info}: {$list}';
+
 	// jqueryUI for drag`n`drop functionality. (Not implemented Yet)
 	if (file_exists($edm_cfg['jqueryui_js'])) {
 		$cfg['jqueryui'] = true;
