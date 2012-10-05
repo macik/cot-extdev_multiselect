@@ -2,6 +2,7 @@
 /* ====================
 [BEGIN_COT_EXT]
 Hooks=admin.config.edit.loop,admin.config.edit.first,admin.config.edit.tags
+Order=50
 [END_COT_EXT]
 ==================== */
 /*
@@ -24,6 +25,11 @@ Hooks=admin.config.edit.loop,admin.config.edit.first,admin.config.edit.tags
 if (!defined('COT_CODE')) { die('Wrong URL ('.array_pop(explode("\\",__FILE__)).').'); }
 
 if (defined('EXTDEV_MULTISELECT')) {//&& ($config_cat==$plug_name || $dem_cfg['track_mode'])
+	if (is_null($config_type) && sizeof($edm_tokens))// Part 3
+	{ // inside admin.config.edit.tags hook adding JS code
+	$adminhelp .= $L['edm_admin'];
+	cot_rc_embed_footer($edm_jstpl->text());
+	}
 	if ($a == 'update' && is_null($config_type)) // Part 2
 	{ // While update CFG (admin.config.edit.first hook)
 	  // filters posted values for «multiselect» params
@@ -50,7 +56,8 @@ if (defined('EXTDEV_MULTISELECT')) {//&& ($config_cat==$plug_name || $dem_cfg['t
 				$sql->closeCursor();
 			}
 		}
-	} elseif ($config_type === '0')  // Part 1
+	}
+	if ($config_type === '0')  // Part 1
 	{ // while creating params config table
 	  // extending only COT_CONFIG_TYPE_TEXT parameters
 		$config_tokens = explode('_', $config_name);
@@ -102,8 +109,8 @@ if (defined('EXTDEV_MULTISELECT')) {//&& ($config_cat==$plug_name || $dem_cfg['t
 						$config_input .= cot_checklistbox($config_values, $config_name.'_source', $config_variants, $config_variants_titles,
 										array('class'=>'checklistbox','data-target-id'=>$config_name),(sizeof($config_variants)<10)?'<br />':'');
 						break;
-					case 'dragndrop':
-/*						$config_input = cot_inputbox('text', $config_name, $config_value,$def_attr);
+/*					case 'dragndrop':
+						$config_input = cot_inputbox('text', $config_name, $config_value,$def_attr);
 						$R["input_option_".$config_name.'_source'] = '<option class="dnd_left" value="{$value}"{$selected}>{$title}</option>';
 						$config_input .= cot_selectbox($config_values, $config_name.'_source[]', $config_variants, $config_variants_titles, false,
 										array('class'=>'dragsource',
@@ -116,9 +123,9 @@ if (defined('EXTDEV_MULTISELECT')) {//&& ($config_cat==$plug_name || $dem_cfg['t
 														'multiple'=>'multiple',
 														'data-target-id'=>$config_name,
 														'size'=>(sizeof($config_variants)<10)?sizeof($config_variants):10));
- */						//$edm_tpl->parse(strtoupper($config_type));
+ 						//$edm_tpl->parse(strtoupper($config_type));
 						//$config_more = $edm_tpl->text(strtoupper($config_type));
-						break;
+						break; */
 					default: $nothing_to_process = true;// nothing to do
 				}
 
@@ -132,13 +139,7 @@ if (defined('EXTDEV_MULTISELECT')) {//&& ($config_cat==$plug_name || $dem_cfg['t
 				}
 			}
 		}
-
-	} else // Part 3
-	{ // inside admin.config.edit.tags hook adding JS code
-		if (sizeof($edm_tokens)) {
-			$adminhelp .= $L['edm_admin'];
-			cot_rc_embed_footer($edm_jstpl->text());
-		}
+		$config_type = null;
 	}
 }
 
