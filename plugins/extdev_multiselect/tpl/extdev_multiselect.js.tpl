@@ -11,7 +11,7 @@ function sl_add(item,id){
 }
 
 <!-- IF {PHP.cfg.jquery} -->
-$(function() {
+function extend_ui(){
 	// links multiselect with hidden text input field
 	$('select.multiselect').bind('change',function(e){
 		var id = $(this).data('targetId');
@@ -29,6 +29,13 @@ $(function() {
 	});
 	$('#saveconfig table tr').eq(2).hide();
 	$('#saveconfig table tr').eq(3).hide();
+}
+
+$(function() {
+	extend_ui();
+	ajaxSuccessHandlers.push(function (){
+		extend_ui(); // after pressing reset or update button
+	});
 });
 <!-- ENDIF -->
 <!-- END: MAIN -->
