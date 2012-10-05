@@ -2,6 +2,7 @@
 /* ====================
 [BEGIN_COT_EXT]
 Hooks=rc
+Order=50
 [END_COT_EXT]
 ==================== */
 
@@ -20,8 +21,10 @@ global $edm_cfg;
 $edm_cfg = $cfg['plugin']['extdev_multiselect'];
 $plug_name = 'extdev_multiselect';
 
-if (defined('COT_ADMIN') && $_GET['n']=='edit' && $_GET['o']=='plug' && $_GET['m']=='config'
-				&& ($_GET['p']==$plug_name || $edm_cfg['track_mode'])) {
+if (!defined('EXTDEV_OFF') // can be switched off by other plugin
+	&& defined('COT_ADMIN') && $_GET['n']=='edit' && $_GET['o']=='plug' && $_GET['m']=='config'
+	&& ($_GET['p']==$plug_name || $edm_cfg['track_mode']))
+{
 	define('EXTDEV_MULTISELECT',true);
 
 	$R['edm_listitem'] = ' {$item},';
@@ -30,11 +33,12 @@ if (defined('COT_ADMIN') && $_GET['n']=='edit' && $_GET['o']=='plug' && $_GET['m
 	$R['edm_simplelist'] = '<br/>{$info}: {$list}';
 
 	// jqueryUI for drag`n`drop functionality. (Not implemented Yet)
-	if (file_exists($edm_cfg['jqueryui_js'])) {
+/* 	if (file_exists($edm_cfg['jqueryui_js'])) {
 		$cfg['jqueryui'] = true;
 		cot_rc_add_file($edm_cfg['jqueryui_css']);
 		cot_rc_link_footer($edm_cfg['jqueryui_js']);
 	}
+ */
 	global $edm_jstpl,$edm_types;
 	$edm_jstpl = new XTemplate(cot_tplfile($plug_name.'.js', 'plug'));
 	$edm_jstpl->parse();
