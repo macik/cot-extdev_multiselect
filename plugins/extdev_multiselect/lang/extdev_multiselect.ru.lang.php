@@ -23,7 +23,7 @@ $L['cfg_track_mode_params'] = array('Демо режим','Глобальный 
 $L['cfg_jqueryui_js'] = array('Путь к библиотеке jQueryUI (для функций drag`n`drop)','_ПОКА НЕ ИСПОЛЬЗУЕТСЯ_');
 $L['cfg_jqueryui_css'] = array('Путь к CSS файлу jQueryUI','_ПОКА НЕ ИСПОЛЬЗУЕТСЯ_');
 
-$L['cfg_test0_simplelist'] = array('Тест элемента «Simple list»','','Для выбора нажмите на один из элементов списка: ','Сбросить выбранные');
+$L['cfg_test0_simplelist'] = array('Тест элемента «Simple list»','','Для добавления/удаления нажмите на один из элементов списка: ','Сбросить выбранные');
 $L['cfg_test1_multiselect'] = array('Тест элемента «Multiselect»','вы можете использовать клавиши Shift/Ctrl для выбора нескольких пунктов');
 $L['cfg_test2_checklistbox'] = array('Тест элемента «Checkbox list»','');
 

@@ -4,8 +4,8 @@
 Code=extdev_multiselect
 Name=ExtDev Helper: multiselect
 Description=Extension development helper to create multiselect element in plugin settings
-Version=1.0
-Date=2012-Sep-26
+Version=1.1
+Date=2012-Oct-15
 Author=Andrey Matsovkin
 Copyright=Copyright (c) 2011-2012, Andrey Matsovkin
 Notes=If your enjoy my plugin please consider donating to help support future developments. Thanks! mailto:macik.spb@gmail.com
@@ -30,7 +30,7 @@ test2_checklistbox=32:text:item1,item2,item3,item4,item5:item1,item3:Test «Chec
  * extdev_multiselect plugin for Cotonti CMF
  *
  * @package extdev_multiselect
- * @version 1.0
+ * @version 1.1
  * @author Andrey Matsovkin
  * @copyright Copyright (c) 2011-2012
  * @license Distributed under BSD license.

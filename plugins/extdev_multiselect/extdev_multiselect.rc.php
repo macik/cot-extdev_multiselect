@@ -40,6 +40,7 @@ if (!defined('EXTDEV_OFF') // can be switched off by other plugin
 	}
  */
 	global $edm_jstpl,$edm_types;
+	class_exists('XTemplate') || require $cfg['system_dir'] . '/cotemplate.php';
 	$edm_jstpl = new XTemplate(cot_tplfile($plug_name.'.js', 'plug'));
 	$edm_jstpl->parse();
 	$edm_types = array('simplelist','multiselect','checklistbox');//,'dragndrop','taglist');
