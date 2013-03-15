@@ -1,8 +1,8 @@
-<?PHP
+<?php
 /**
  * Localization file for extdev_multiselect
  * @author Andrey Matsovkin
- * @copyright Copyright (c) 2011-2012
+ * @copyright Copyright (c) 2011-2013
  * @license Distributed under BSD license.
  */
 
@@ -23,12 +23,12 @@ $L['cfg_track_mode_params'] = array('Демо режим','Глобальный 
 $L['cfg_jqueryui_js'] = array('Путь к библиотеке jQueryUI (для функций drag`n`drop)','_ПОКА НЕ ИСПОЛЬЗУЕТСЯ_');
 $L['cfg_jqueryui_css'] = array('Путь к CSS файлу jQueryUI','_ПОКА НЕ ИСПОЛЬЗУЕТСЯ_');
 
-$L['cfg_test0_simplelist'] = array('Тест элемента «Simple list»','','Для добавления/удаления нажмите на один из элементов списка: ','Сбросить выбранные');
+$L['cfg_test0_simplelist'] = array('Тест элемента «Simple list»','','Для выбора нажмите на один из элементов списка: ','Сбросить выбранные');
 $L['cfg_test1_multiselect'] = array('Тест элемента «Multiselect»','вы можете использовать клавиши Shift/Ctrl для выбора нескольких пунктов');
 $L['cfg_test2_checklistbox'] = array('Тест элемента «Checkbox list»','');
+$L['cfg_test2_checklistbox_params'] = array('тест 1','тест 2','тест 3','тест 4','тест 5');
 
 $L['edm_admin'] = '«Тестовые» параметры используются здесь просто в качестве демонстрации и не влияют на работу самого <strong>ExtDev</strong>.
 Вы можете безбоязненно менять и сохранять их.';
 
 
-?>

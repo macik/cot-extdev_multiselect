@@ -1,4 +1,4 @@
-<?PHP
+<?php
 /* ====================
 [BEGIN_COT_EXT]
 Hooks=rc
@@ -11,7 +11,7 @@ Order=50
  *
  * @package extdev_multiselect
  * @author Andrey Matsovkin
- * @copyright Copyright (c) 2011-2012
+ * @copyright Copyright (c) 2011-2013
  * @license Distributed under BSD license.
  */
 
@@ -40,10 +40,8 @@ if (!defined('EXTDEV_OFF') // can be switched off by other plugin
 	}
  */
 	global $edm_jstpl,$edm_types;
-	class_exists('XTemplate') || require $cfg['system_dir'] . '/cotemplate.php';
 	$edm_jstpl = new XTemplate(cot_tplfile($plug_name.'.js', 'plug'));
 	$edm_jstpl->parse();
 	$edm_types = array('simplelist','multiselect','checklistbox');//,'dragndrop','taglist');
 }
 
-?>

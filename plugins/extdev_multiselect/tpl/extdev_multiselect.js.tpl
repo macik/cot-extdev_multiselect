@@ -1,33 +1,13 @@
 <!-- BEGIN: MAIN -->
-/**
- * Clears value of element with Id
- * @param id - ID of input field
- */
 function sl_clear(id){
 	var el = document.getElementById(id);
 	if (el) el.value='';
 }
 
-/**
- * Toggle item in list
- * @param item - item name (string)
- * @param id - ID of target input field
- */
-function sl_toggle(item,id){
-	var el = document.getElementById(id),
-		val = el.value,
-		arr = val.split(','),
-		exists = false,
-		newarr = [];
-	for(var i=0; i<arr.length; i++) {
-		if (arr[i]==item) exists = true;
-		else newarr.push(arr[i]);
-	}
-	if (!exists) {
-		el.value = val ? val + ',' + item : item;
-	} else {
-		el.value = newarr.join(',');
-	}
+function sl_add(item,id){
+	var el = document.getElementById(id);
+	var val = el.value;
+	el.value = val ? val + ',' + item : item;
 }
 
 <!-- IF {PHP.cfg.jquery} -->
@@ -59,3 +39,22 @@ $(function() {
 });
 <!-- ENDIF -->
 <!-- END: MAIN -->
+
+/*$('select.dragsource').each(function(i,e){
+	$(e).draggable();
+});
+*/
+//bind('change',function(e){;
+
+//});
+//$( ".dragsource option, #droptarget option" ).draggable();
+/*$( "#droptarget" ).droppable({
+	accept: "option.dnd_left",
+	activeClass: "ui-state-hover",
+	hoverClass: "ui-state-active",
+	drop: function( event, ui ) {
+		$( this ).addClass( "ui-state-highlight" );
+		console.log('dropped');
+	}
+});
+*/

@@ -1,4 +1,4 @@
-<?PHP
+<?php
 /* ====================
 [BEGIN_COT_EXT]
 Hooks=admin.config.edit.loop,admin.config.edit.first,admin.config.edit.tags
@@ -27,8 +27,8 @@ if (!defined('COT_CODE')) { die('Wrong URL ('.array_pop(explode("\\",__FILE__)).
 if (defined('EXTDEV_MULTISELECT')) {//&& ($config_cat==$plug_name || $dem_cfg['track_mode'])
 	if (is_null($config_type) && sizeof($edm_tokens))// Part 3
 	{ // inside admin.config.edit.tags hook adding JS code
-		$adminhelp .= $L['edm_admin'];
-		cot_rc_embed($edm_jstpl->text());
+	$adminhelp .= $L['edm_admin'];
+	cot_rc_embed_footer($edm_jstpl->text());
 	}
 	if ($a == 'update' && is_null($config_type)) // Part 2
 	{ // While update CFG (admin.config.edit.first hook)
@@ -85,7 +85,7 @@ if (defined('EXTDEV_MULTISELECT')) {//&& ($config_cat==$plug_name || $dem_cfg['t
 						foreach ($config_variants as $k=>$item) {
 							$config_title = $config_variants_titles[$k];
 							$link = cot_rc_link("#$item",$config_title,
-											array('onclick'=>"sl_toggle('$item','$config_name');return false;"));
+											array('onclick'=>"sl_add('$item','$config_name');return false;"));
 							$item_list .= ($last==$item) ? cot_rc('edm_lastitem',array('item'=>$link)) :
 												 			cot_rc('edm_listitem',array('item'=>$link));
 						}
@@ -143,4 +143,3 @@ if (defined('EXTDEV_MULTISELECT')) {//&& ($config_cat==$plug_name || $dem_cfg['t
 	}
 }
 
-?>

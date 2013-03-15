@@ -1,11 +1,11 @@
-<?PHP
+<?php
 /* ====================
 [BEGIN_COT_EXT]
 Code=extdev_multiselect
 Name=ExtDev Helper: multiselect
 Description=Extension development helper to create multiselect element in plugin settings
-Version=1.1
-Date=2012-Oct-15
+Version=1.0
+Date=2012-Sep-26
 Author=Andrey Matsovkin
 Copyright=Copyright (c) 2011-2012, Andrey Matsovkin
 Notes=If your enjoy my plugin please consider donating to help support future developments. Thanks! mailto:macik.spb@gmail.com
@@ -30,9 +30,9 @@ test2_checklistbox=32:text:item1,item2,item3,item4,item5:item1,item3:Test «Chec
  * extdev_multiselect plugin for Cotonti CMF
  *
  * @package extdev_multiselect
- * @version 1.1
+ * @version 1.0
  * @author Andrey Matsovkin
- * @copyright Copyright (c) 2011-2012
+ * @copyright Copyright (c) 2011-2013
  * @license Distributed under BSD license.
 
 test3_dragndrop=33:text:item1,item2,item3,item4,item5:item1,item3:Test «Drag`n`Drop»
@@ -44,4 +44,3 @@ test4_taglist=34:text:item1,item2,item3,item4,item5:item1,item3:Test «Tag list�
 if (!defined('COT_CODE')) { die('Wrong URL ('.array_pop(explode("\\",__FILE__)).').'); }
 
 
-?>
